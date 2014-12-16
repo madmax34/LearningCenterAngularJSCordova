@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html ng-app="learningCenterApp">
+<head>
+    <meta charset="utf-8" />
+    <title>LearningCenter</title>
+    <!-- LearningCenter references -->
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <!--<link href="css/mobileAngularUI/mobile-angular-ui-base.min.css" rel="stylesheet" />-->
+    <link href="css/index.css" rel="stylesheet" />
+    <style>
+        .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+    </style>
+</head>
+<body ng-controller="PhoneListController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <fieldset>
+                    <legend>Search</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="holo" type="text" ng-model="query" placeholder="ingrese búsqueda..." />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <h1><!--Lista de teléfonos--></h1>
+
+                        <div class="has-error" ng-if="phoneList.length == 0">
+                            <h4>No hay elementos</h4>
+                        </div>
+                    </div>
+
+                    <div ng-if="phoneList.length != 0">
+
+                        <div ng-if="query == null">
+                            <span class="text-info">Mostrando todos los resultados</span>
+                        </div>
+
+                        <div ng-if="query != null">
+                            <span>Filtro: {{query}} | {{query != null && query != '' ? query : '---' }} | {{predicate}}</span>
+                        </div>
+
+                        <div style="position: relative; height: 80vh; width: 100%;">
+                            <div class="scrollable">
+                                <div class="scrollable-content">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <a href="" ng-click="predicate = 'Name'; reverse=!reverse">
+                                                        Nombre
+                                                        <span ng-show="predicate == 'Name'">
+                                                            <span ng-show="!reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                                            </span>
+                                                            <span ng-show="reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </th>
+                                                <th>
+                                                    <a href="" ng-click="predicate = 'Age'; reverse=!reverse">
+                                                        Age
+                                                        <span ng-show="predicate == 'Age'">
+                                                            <span ng-show="!reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                                            </span>
+                                                            <span ng-show="reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </th>
+                                                <th>Imágen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in phoneList | filter: {Name: query} | orderBy: predicate:reverse">
+                                                <td>{{item.Name}}</td>
+                                                <td>{{item.Age}}</td>
+                                                <td><img class="small" src="{{item.ImageUrl}}" /></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <!--<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-change="pageChanged(currentPage)"
+                                                                ng-model="currentPage"></pagination>-->
+                                                    <p>Total number of phones: {{ phoneList.length}}</p>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+
+
+    <script src="scripts/index.js"></script>
+    <script src="controller/phoneListController.js"></script>
+    <script src="data/modelData.js"></script>
+</body>
+</html>
