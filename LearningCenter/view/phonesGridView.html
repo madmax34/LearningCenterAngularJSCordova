@@ -30,61 +30,70 @@
                     </div>
 
                     <div ng-if="query != null">
-                        <span>Filtro: {{query}} | {{query != null && query != '' ? query : '---' }} | {{predicate}}</span>
+                        <span>Filtro: {{query != null && query != '' ? query : '---' }} </span>
                     </div>
 
                     <div style="position: relative; height: 80vh; width: 100%;">
                         <div class="scrollable">
                             <div class="scrollable-content">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <a href="" ng-click="predicate = 'Name'; reverse=!reverse">
-                                                    Nombre
-                                                    <span ng-show="predicate == 'Name'">
-                                                        <span ng-show="!reverse">
-                                                            <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                
+                                <ul class="phones">
+                                    <li ng-repeat="phone in phoneList | filter:{name:query} | orderBy:orderProp"
+                                        class="thumbnail phone-listing">
+                                        <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{getUrl(phone.imageUrl)}}"></a>
+                                        <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+                                        <p>{{phone.snippet}}</p>
+                                    </li>
+                                </ul>
+
+                                <!--<table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <a href="" ng-click="predicate = 'name'; reverse=!reverse">
+                                                        Nombre
+                                                        <span ng-show="predicate == 'name'">
+                                                            <span ng-show="!reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                                            </span>
+                                                            <span ng-show="reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                            </span>
                                                         </span>
-                                                        <span ng-show="reverse">
-                                                            <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                    </a>
+                                                </th>
+                                                <th>
+                                                    <a href="" ng-click="predicate = 'age'; reverse=!reverse">
+                                                        Age
+                                                        <span ng-show="predicate == 'age'">
+                                                            <span ng-show="!reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                                            </span>
+                                                            <span ng-show="reverse">
+                                                                <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                            </span>
                                                         </span>
-                                                    </span>
-                                                </a>
-                                            </th>
-                                            <th>
-                                                <a href="" ng-click="predicate = 'Age'; reverse=!reverse">
-                                                    Age
-                                                    <span ng-show="predicate == 'Age'">
-                                                        <span ng-show="!reverse">
-                                                            <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
-                                                        </span>
-                                                        <span ng-show="reverse">
-                                                            <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                            </th>
-                                            <th>Imágen</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="item in phoneList | filter: {Name: query} | orderBy: predicate:reverse">
-                                            <td><a href="#/phones/{{item.Id}}">{{item.Name}}</a></td>
-                                            <td>{{item.Age}}</td>
-                                            <td><a href="#/phones/{{item.Id}}"><img class="small" ng-src="{{item.ImageUrl}}" /></a></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3">
-                                                <!--<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-change="pageChanged(currentPage)"
-                                                                ng-model="currentPage"></pagination>-->
-                                                <p>Total number of phones: {{ phoneList.length}}</p>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                                                    </a>
+                                                </th>
+                                                <th>Imágen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in phoneList | filter: {name: query} | orderBy: predicate:reverse" class="phone-listing">
+                                                <td><a href="#/phones/{{item.id}}">{{item.name}}</a></td>
+                                                <td>{{item.age}}</td>
+                                                <td><a href="#/phones/{{item.id}}"><img class="small" ng-src="{{getUrl(item.imageUrl)}}" /></a></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3">
+                                                
+                                                    <p>Total number of phones: {{ phoneList.length}}</p>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>-->
 
                             </div>
                         </div>

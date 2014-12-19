@@ -1,4 +1,5 @@
 ﻿body {
+    margin: 50px !important;
 }
 
 input.holo[type='text'] {
@@ -26,3 +27,30 @@ input.holo[type='text']:hover, input.holo[type='text']:focus {
 img.small {
     width: 80px;
 }
+
+.phone-thumbs {
+    
+}
+
+.phone-images {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+
+img.phone {
+  margin-right: auto;
+  margin-bottom: auto;
+  background-color: white;
+  padding: 2em;
+  height: 400px;
+  width: 400px;
+  display: none;
+}
+
+img.phone:first-child {
+  display: block;
+  }

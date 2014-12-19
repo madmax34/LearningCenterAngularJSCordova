@@ -1,4 +1,12 @@
-﻿var learningCenterApp = angular.module('learningCenterApp', ['ngRoute', 'phonesGridController', 'phoneDetailsController', 'ui.bootstrap']);
+﻿var learningCenterApp = angular.module(
+    'learningCenterApp',
+    [
+        'ngRoute',
+        'phoneAnimations',
+        'phonesGridController',
+        'phoneDetailsController',
+        'phoneServices',
+        'ui.bootstrap']);
 
 learningCenterApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider

@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="controller\phoneDetailsController.js" />
     <Content Include="controller\phoneListController.js" />
+    <Content Include="css\animations.css" />
     <Content Include="css\bootstrap\bootstrap-theme.css" />
     <Content Include="css\bootstrap\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap\bootstrap-theme.min.css" />
@@ -167,6 +168,7 @@
     <Content Include="scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="scripts\animations.js" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="scripts\i18n\angular-locale_aa-er.js" />
@@ -911,6 +913,11 @@
     <Content Include="scripts\i18n\angular-locale_zh.js" />
     <Content Include="scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="scripts\i18n\angular-locale_zu.js" />
+    <Content Include="scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="scripts\jquery-2.1.1.js" />
+    <Content Include="scripts\jquery-2.1.1.min.js" />
+    <Content Include="scripts\jquery-2.1.1.min.map" />
+    <Content Include="scripts\services\services.js" />
     <Content Include="scripts\version.json" />
     <Content Include="view\mainMenu.html" />
     <Content Include="view\phonesDetailView.html" />
