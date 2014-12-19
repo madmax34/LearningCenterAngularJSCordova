@@ -1,6 +1,6 @@
-﻿var learningCenterApp = angular.module('learningCenterApp', ['ui.bootstrap']);
+﻿var phonesGridController = angular.module('phonesGridController', []);
 
-learningCenterApp.controller('PhoneListController', function ($scope, $log, $http) {
+phonesGridController.controller('PhoneListController', ['$scope', '$log', '$http', function ($scope, $log, $http) {
 
     $scope.$log = $log;
     $scope.phoneList = [];
@@ -30,4 +30,4 @@ learningCenterApp.controller('PhoneListController', function ($scope, $log, $htt
 
     //    $scope.filteredPhones = $scope.phoneList.slice(begin, end);
     //};
-});
+}]);

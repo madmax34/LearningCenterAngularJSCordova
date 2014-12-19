@@ -110,6 +110,7 @@
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="controller\phoneDetailsController.js" />
     <Content Include="controller\phoneListController.js" />
     <Content Include="css\bootstrap\bootstrap-theme.css" />
     <Content Include="css\bootstrap\bootstrap-theme.css.map" />
@@ -912,6 +913,8 @@
     <Content Include="scripts\i18n\angular-locale_zu.js" />
     <Content Include="scripts\version.json" />
     <Content Include="view\mainMenu.html" />
+    <Content Include="view\phonesDetailView.html" />
+    <Content Include="view\phonesGridView.html" />
     <Folder Include="images\" />
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />
     <Content Include="merges\android\scripts\platformOverrides.js" />

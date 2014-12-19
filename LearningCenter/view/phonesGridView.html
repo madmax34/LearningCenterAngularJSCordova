@@ -1,0 +1,97 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <fieldset>
+                <legend>Search</legend>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input class="holo" type="text" ng-model="query" placeholder="ingrese búsqueda..." />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h1><!--Lista de teléfonos--></h1>
+
+                    <div class="has-error" ng-if="phoneList.length == 0">
+                        <h4>No hay elementos</h4>
+                    </div>
+                </div>
+
+                <div ng-if="phoneList.length != 0">
+
+                    <div ng-if="query == null">
+                        <span class="text-info">Mostrando todos los resultados</span>
+                    </div>
+
+                    <div ng-if="query != null">
+                        <span>Filtro: {{query}} | {{query != null && query != '' ? query : '---' }} | {{predicate}}</span>
+                    </div>
+
+                    <div style="position: relative; height: 80vh; width: 100%;">
+                        <div class="scrollable">
+                            <div class="scrollable-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <a href="" ng-click="predicate = 'Name'; reverse=!reverse">
+                                                    Nombre
+                                                    <span ng-show="predicate == 'Name'">
+                                                        <span ng-show="!reverse">
+                                                            <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span ng-show="reverse">
+                                                            <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </th>
+                                            <th>
+                                                <a href="" ng-click="predicate = 'Age'; reverse=!reverse">
+                                                    Age
+                                                    <span ng-show="predicate == 'Age'">
+                                                        <span ng-show="!reverse">
+                                                            <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span ng-show="reverse">
+                                                            <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </th>
+                                            <th>Imágen</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in phoneList | filter: {Name: query} | orderBy: predicate:reverse">
+                                            <td><a href="#/phones/{{item.Id}}">{{item.Name}}</a></td>
+                                            <td>{{item.Age}}</td>
+                                            <td><a href="#/phones/{{item.Id}}"><img class="small" ng-src="{{item.ImageUrl}}" /></a></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3">
+                                                <!--<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-change="pageChanged(currentPage)"
+                                                                ng-model="currentPage"></pagination>-->
+                                                <p>Total number of phones: {{ phoneList.length}}</p>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

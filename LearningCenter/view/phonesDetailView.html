@@ -1,0 +1,21 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class=""></div>
+        <h2 style="margin-left: auto; margin-right: auto;">{{phone.name}}</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row" ng-repeat="image in phone.images">
+                <div class="col-md-2">
+                    <img style="width: 80%; height: auto" ng-src="{{'http://newphonelisttestwebapi.azurewebsites.net/jsonData/' + image}}"/>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <h3>Description</h3>
+            {{ phone.description }}
+        </div>
+    </div>
+</div>
